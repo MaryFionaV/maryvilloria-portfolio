@@ -5,193 +5,114 @@
  * This file is the ONLY place node copy lives. AIStack.tsx and AIStackGrid.tsx
  * render whatever shape they find here, so swapping in content is a data edit
  * and never a JSX edit. Keep the exported names and types stable.
- *
- * Every value below is a PLACEHOLDER. Shape rules:
- * - The root is you. Its children are the categories (branches).
- * - A branch with `status` is itself a system; a branch without one is a
- *   group whose children are the systems.
- * - Status is what the thing actually does today: "Live" (in use by others),
- *   "Internal" (works, you use it), "Beta".
- * - Logo marks in AIStackGrid.tsx are keyed by the node `id` below.
  */
 
 import {
   Sparkle,
-  Coffee,
   Robot,
   Article,
-  FilmSlate,
-  UsersThree,
   Database,
-  SlackLogo,
   MagnifyingGlass,
-  ChatCircleDots,
-  FlowArrow,
-  PhoneCall,
-  Browser,
-  Broadcast,
   Timer,
+  FlowArrow,
+  ChatCircleDots
 } from '@/components/slab'
 import type { Icon } from '@/components/slab'
-import { profile } from '@/data/profile'
 
 export type StackStatus = 'Live' | 'Internal' | 'Beta'
 
-/** A vendor mark, masked to a single ink colour so the row reads as one set
- *  rather than a rainbow of brand palettes. Only marks that already exist in
- *  public/icons are listed. */
 export type StackLogo = { src: string; name: string }
 
 export type StackNode = {
   id: string
   name: string
-  /** One plain sentence a non-technical client understands. */
   what: string
-  /** Real stack / model / where it runs. Rendered small and muted. */
   stack?: string
   status?: StackStatus
-  /** Phosphor glyph for the card's mark tile. Every node has one. */
   Icon: Icon
   logos?: StackLogo[]
   children?: StackNode[]
 }
 
-const ANTHROPIC: StackLogo = { src: '/icons/anthropic.svg', name: 'Anthropic' }
-const OPENAI: StackLogo = { src: '/icons/openai.svg', name: 'OpenAI' }
-const SLACK: StackLogo = { src: '/icons/slack.svg', name: 'Slack' }
-const NOUS: StackLogo = { src: '/icons/nousresearch.svg', name: 'Nous Research' }
-
-const WHAT = 'PLACEHOLDER - tell me what to put here: one plain line on what this does.'
-const STACK = 'PLACEHOLDER - model, tools, where it runs'
+// Your actual Data Analytics tools
+const R_LANG: StackLogo = { src: '/icons/r.svg', name: 'R' }
+const SPSS: StackLogo = { src: '/icons/spss.svg', name: 'SPSS' }
+const JAMOVI: StackLogo = { src: '/icons/jamovi.svg', name: 'Jamovi' }
+const EXCEL: StackLogo = { src: '/icons/excel.svg', name: 'Excel' }
 
 /** Single root: you. Branches are the categories. */
 export const aiStack: StackNode = {
   id: 'root',
   Icon: Sparkle,
-  name: profile.name,
-  what: 'PLACEHOLDER - tell me what to put here: one line on the systems you build and run.',
-  stack: 'PLACEHOLDER - your brand',
+  name: 'Mary Fiona Villoria',
+  what: 'Freelance Quantitative Analyst & 3rd-Year Statistics Student.',
+  stack: 'Data Analysis & Research',
   children: [
     {
-      id: 'project-a',
-      Icon: Coffee,
-      logos: [ANTHROPIC],
-      name: 'Project A',
-      what: WHAT,
-      stack: STACK,
-      status: 'Live',
-    },
-    {
-      id: 'category-one',
+      id: 'cat-predictive',
       Icon: Robot,
-      name: 'Category One',
-      what: 'PLACEHOLDER - tell me what to put here: what the systems in this group have in common.',
+      name: 'Predictive & Statistical Modeling',
+      what: 'Advanced regression models and classification pipelines to isolate performance drivers.',
       children: [
         {
-          id: 'project-b',
-          Icon: Article,
-          logos: [ANTHROPIC],
-          name: 'Project B',
-          what: WHAT,
-          stack: STACK,
-          status: 'Internal',
-        },
-        {
-          id: 'project-c',
-          Icon: FilmSlate,
-          logos: [OPENAI],
-          name: 'Project C',
-          what: WHAT,
-          stack: STACK,
-          status: 'Internal',
-        },
-        {
-          id: 'project-d',
-          Icon: UsersThree,
-          logos: [ANTHROPIC],
-          name: 'Project D',
-          what: WHAT,
-          stack: STACK,
-          status: 'Internal',
-        },
-      ],
-    },
-    {
-      id: 'category-two',
-      Icon: Database,
-      name: 'Category Two',
-      what: 'PLACEHOLDER - tell me what to put here: what the systems in this group have in common.',
-      children: [
-        {
-          id: 'project-e',
-          Icon: SlackLogo,
-          logos: [ANTHROPIC, SLACK],
-          name: 'Project E',
-          what: WHAT,
-          stack: STACK,
-          status: 'Live',
-        },
-        {
-          id: 'project-f',
+          id: 'proj-behavioral',
           Icon: MagnifyingGlass,
-          logos: [ANTHROPIC],
-          name: 'Project F',
-          what: WHAT,
-          stack: STACK,
-          status: 'Live',
-        },
-      ],
-    },
-    {
-      id: 'category-three',
-      Icon: ChatCircleDots,
-      name: 'Category Three',
-      what: 'PLACEHOLDER - tell me what to put here: what the systems in this group have in common.',
-      children: [
-        {
-          id: 'project-g',
-          Icon: FlowArrow,
-          logos: [ANTHROPIC],
-          name: 'Project G',
-          what: WHAT,
-          stack: STACK,
+          logos: [R_LANG, SPSS],
+          name: 'Predictive Behavioral Analytics',
+          what: 'Evaluated 27 variables and validated binary classification models on 380+ subject records to achieve 0.85 AUC.',
+          stack: 'Logistic Regression, VIF, Shapiro-Wilk',
           status: 'Live',
         },
         {
-          id: 'project-h',
-          Icon: PhoneCall,
-          logos: [ANTHROPIC],
-          name: 'Project H',
-          what: WHAT,
-          stack: STACK,
-          status: 'Beta',
-        },
-        {
-          id: 'project-i',
-          Icon: Browser,
-          logos: [ANTHROPIC],
-          name: 'Project I',
-          what: WHAT,
-          stack: STACK,
-          status: 'Live',
-        },
-      ],
-    },
-    {
-      id: 'project-j',
-      Icon: Broadcast,
-      logos: [NOUS],
-      name: 'Project J',
-      what: WHAT,
-      stack: STACK,
-      status: 'Live',
-      children: [
-        {
-          id: 'project-k',
+          id: 'proj-compensation',
           Icon: Timer,
-          name: 'Project K',
-          what: WHAT,
-          stack: STACK,
+          logos: [R_LANG],
+          name: 'Compensation Analytics',
+          what: 'Evaluated multiple linear regression models using an 80/20 train-test cross-validation strategy.',
+          stack: 'Multiple Linear Regression, Train/Test Split',
+          status: 'Live',
+        },
+      ],
+    },
+    {
+      id: 'cat-research',
+      Icon: Article,
+      name: 'Quantitative & Experimental Research',
+      what: 'Defense-ready Chapter 4 methodologies, formatting, and rigorous assumption testing.',
+      children: [
+        {
+          id: 'proj-ancova',
+          Icon: Database,
+          logos: [R_LANG, JAMOVI],
+          name: 'Quasi-Experimental ANCOVA',
+          what: 'Standardized raw scores and ran ANCOVA models alongside comprehensive assumption diagnostics in R and Jamovi.',
+          stack: 'ANCOVA, Levene\'s Test, Type III Sum of Squares',
+          status: 'Live',
+        },
+        {
+          id: 'proj-correlation',
+          Icon: FlowArrow,
+          logos: [SPSS, EXCEL],
+          name: 'Quantitative Correlational Research',
+          what: 'Evaluated program impact on learner attendance using descriptive statistics and Pearson\'s r correlation.',
+          stack: 'Pearson r, APA 7th Edition Narrative',
+          status: 'Live',
+        },
+      ],
+    },
+    {
+      id: 'cat-visualization',
+      Icon: ChatCircleDots,
+      name: 'Data Visualization & Reporting',
+      what: 'Transforming raw datasets into executive presentations and clear comparative charts.',
+      children: [
+        {
+          id: 'proj-survey',
+          Icon: Sparkle,
+          logos: [EXCEL],
+          name: 'Survey Analytics & Reporting',
+          what: 'Processed raw survey datasets in Excel using Pivot Tables and formulas, formatting technical reports to strict APA standards.',
+          stack: 'Excel, Pivot Tables, Custom Data Viz',
           status: 'Live',
         },
       ],
