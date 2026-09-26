@@ -50,7 +50,7 @@ export const profile: Profile = {
   firstName: 'Mary Fiona',
   handle: '@maryvilloria',
   role: 'Junior Analyst & Freelance Quantitative Researcher',
-  avatarSrc: '/profile.jpg',
+  avatarSrc: '/profile.jpeg',
   verifiedLabel: 'BS Statistics Student & Freelance Analyst',
   email: 'villoria.maryfiona@gmail.com',
   location: 'Iligan, Province Of Lanao Del Norte, PH 7204',
