@@ -1,5 +1,5 @@
 /**
- * YOUR IDENTITY - start here.
+ * YOUR IDENTITY - start here. 
  *
  * Everything that says who you are lives in this file: name, handle, photo,
  * socials, email and the Home headline. Every value below is a PLACEHOLDER.
