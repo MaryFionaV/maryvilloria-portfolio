@@ -11,9 +11,9 @@
  */
 
 export type SocialLink = {
-  label: string
+  name?: string
   href: string
-  iconPath: string
+  icon: string
 }
 
 export type Stat = { value: string; label: string }
