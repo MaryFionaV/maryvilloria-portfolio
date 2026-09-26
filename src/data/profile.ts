@@ -66,12 +66,12 @@ export const profile: Profile = {
   },
   socials: [
   {
-    url: 'https://linkedin.com/in/your-linkedin-handle',
-    iconPath: '/icons/linkedin.svg',
+    href: 'https://linkedin.com/in/your-linkedin-handle',
+    icon: '/icons/linkedin.svg',
   },
   {
-    url: 'https://github.com/MaryFionaV',
-    iconPath: '/icons/github.svg',
+    href: 'https://github.com/MaryFionaV',
+    icon: '/icons/github.svg',
   },
- ],
+],
 }
