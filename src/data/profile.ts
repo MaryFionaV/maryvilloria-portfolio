@@ -43,30 +43,29 @@ export type Profile = {
 }
 
 export const profile: Profile = {
-  name: 'Your Name',
-  firstName: 'Your Name',
-  handle: '@yourhandle',
-  role: 'PLACEHOLDER - your title',
+  name: 'Mary Fiona Villoria', //[cite: 4]
+  firstName: 'Mary Fiona', //[cite: 4]
+  handle: '@maryvilloria',
+  role: 'Junior Analyst & Freelance Quantitative Researcher', //[cite: 4]
   avatarSrc: '/avatar.svg',
-  verifiedLabel: 'PLACEHOLDER - what the tick means (e.g. a certification)',
-  email: 'you@example.com',
-  location: 'PLACEHOLDER - your city or timezone',
+  verifiedLabel: 'BS Statistics Student & Freelance Analyst', //[cite: 4]
+  email: 'villoria.maryfiona@gmail.com', //[cite: 4]
+  location: 'Iligan, Province Of Lanao Del Norte, PH 7204', //[cite: 4]
   stats: [
-    { value: '0 yrs', label: 'PLACEHOLDER' },
-    { value: '#000', label: 'PLACEHOLDER' },
-    { value: 'GMT+0', label: 'PLACEHOLDER' },
+    { value: '3', label: 'Core Projects' }, //[cite: 4]
+    { value: '0.85', label: 'AUC Score' }, //[cite: 4]
+    { value: '100%', label: 'APA 7th Format' }, //[cite: 4]
   ],
   // The intro types this line, then flies it into the Home headline.
   // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Your headline here.', line2: 'Keep it short.' },
+  displayName: { line1: 'Data Analyst.', line2: 'Quantitative Researcher.' },
   hero: {
-    body: 'PLACEHOLDER - one line on what you do and who you do it for.',
+    body: 'Detail-oriented Statistics student and freelance quantitative analyst with hands-on experience in predictive modeling, survey analytics, and statistical data cleaning.', //[cite: 4]
     portraitSrc: '/avatar.svg',
-    portraitAlt: 'Portrait placeholder',
+    portraitAlt: 'Mary Fiona Villoria Portrait',
   },
   socials: [
-    { label: 'Facebook profile', href: '#', iconPath: '/icons/facebook.svg' },
-    { label: 'LinkedIn profile', href: '#', iconPath: '/icons/linkedin.svg' },
-    { label: 'Discord profile', href: '#', iconPath: '/icons/discord.svg' },
+    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/maryvilloria/', iconPath: '/icons/linkedin.svg' },
+    { label: 'GitHub profile', href: 'https://github.com/MaryFionaV', iconPath: '/icons/github.svg' },
   ],
 }
