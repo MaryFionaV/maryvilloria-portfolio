@@ -101,10 +101,14 @@ export default function HomeBento() {
 
       {/* Credentials */}
       <Link to="/about" className="bento__card bento__card--creds">
-        <CardHead Icon={Medal} title="Credentials" desc="Consistent Dean's Lister & Sun Life Foundation Scholar with hands-on research expertise." />
+        <CardHead 
+          Icon={Medal} 
+          title="Credentials" 
+          desc="Consistent Rizal Lister (1.13 CGPA) at MSU, Sun Life Scholar & Cisco Certified in Data Analytics." 
+        />
         <div className="bento__media bento__badge" aria-hidden="true">
           <span className="bento__badge-ring">
-            <img src="/placeholders/badge.svg" alt="" width={72} height={72} />
+            <img src="/icons/cisco-badge.png" alt="Cisco Data Analytics Verified" width={72} height={72} />
           </span>
         </div>
       </Link>
