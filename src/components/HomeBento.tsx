@@ -129,25 +129,9 @@ export default function HomeBento() {
       </Link>
 
       {/* Services */}
-      <Link to="/services" className="bento__card bento__card--services">
-        <CardHead Icon={Stack} title="Services" desc="Statistical data cleaning, Chapter 4 narrative writing, and model diagnostics." />
-        <ul className="bento__media bento__offers" role="list">
-          {OFFERS.map(({ Icon, title, note }, i) => (
-            <li key={title} className="bento__offer" style={{ '--i': i } as React.CSSProperties}>
-              <span className="bento__offer-tile">
-                <Icon size={15} weight="duotone" aria-hidden="true" />
-              </span>
-              <span className="bento__offer-text">
-                <span className="bento__offer-title">{title}</span>
-                <span className="bento__offer-note">{note}</span>
-              </span>
-              <span className="bento__offer-num" aria-hidden="true">
-                0{i + 1}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </Link>
+<Link to="/services" className="bento__card bento__card--services">
+  <CardHead Icon={Stack} title="Services" desc="Statistical data cleaning, Chapter 4 narrative writing, and model diagnostics." />
+</Link>
 
       {/* Testimonials */}
       <Link to="/testimonials" className="bento__card bento__card--quotes">
