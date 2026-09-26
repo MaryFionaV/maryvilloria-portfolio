@@ -3,35 +3,43 @@ import { ArrowUpRight, MapPin } from '@/components/slab'
 import { profile } from '@/data/profile'
 
 /**
- * AboutGrid - Fixed layout without text collisions or mismatched icons.
+ * Define tool icons pointing to images in public/icons/
  */
+const R_LANG = { src: '/icons/r.svg', name: 'R' }
+const SPSS = { src: '/icons/spss.svg', name: 'SPSS' }
+const JAMOVI = { src: '/icons/jamovi.svg', name: 'Jamovi' }
+const EXCEL = { src: '/icons/excel.svg', name: 'Excel' }
+const PYTHON = { src: '/icons/python.svg', name: 'Python' }
+const TABLEAU = { src: '/icons/tableau.svg', name: 'Tableau' }
+const GITHUB = { src: '/icons/ai/github.svg', name: 'GitHub' }
+const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
 
 type Capability = {
   index: string
   title: string
-  tools: string[]
+  marks: { src: string; name: string }[]
 }
 
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
     title: 'Quantitative Research & Chapter 4 Writing',
-    tools: ['R', 'SPSS', 'Jamovi'],
+    marks: [R_LANG, SPSS, JAMOVI],
   },
   {
     index: '02',
     title: 'Statistical Data Cleaning & Model Diagnostics',
-    tools: ['R', 'Excel', 'Python'],
+    marks: [R_LANG, EXCEL, PYTHON],
   },
   {
     index: '03',
     title: 'Survey Analytics & Visual Dashboards',
-    tools: ['Excel', 'Tableau', 'GSuite'],
+    marks: [EXCEL, TABLEAU, GWS],
   },
   {
     index: '04',
     title: 'Predictive & Behavioral Data Modeling',
-    tools: ['R', 'SPSS', 'Jamovi'],
+    marks: [R_LANG, SPSS, JAMOVI, GITHUB],
   },
 ]
 
@@ -43,7 +51,7 @@ export default function AboutGrid() {
         <h1 className="pgrid__title" id="about-title">
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
-        {/* Left empty intentionally to prevent text collision/overlap with the glass card */}
+        {/* Lede line removed to prevent overlapping header text in fixed viewport */}
       </header>
 
       <div className="home__glass agrid__glass">
@@ -63,24 +71,13 @@ export default function AboutGrid() {
             {CAPABILITIES.map((c) => (
               <li key={c.index} className="agrid__cap">
                 <span className="agrid__cap-marks">
-                  {c.tools.map((tool, i) => (
+                  {c.marks.map((m, i) => (
                     <span
-                      key={`${tool}-${i}`}
+                      key={`${m.name}-${i}`}
                       className="agrid__mark"
-                      style={{
-                        '--i': c.tools.length - i,
-                        fontSize: '11px',
-                        fontWeight: '600',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        padding: '2px 6px',
-                        borderRadius: '6px',
-                        background: 'rgba(0,0,0,0.05)',
-                        color: 'var(--fg, #1a1a1a)'
-                      } as CSSProperties}
+                      style={{ '--i': c.marks.length - i } as CSSProperties}
                     >
-                      {tool}
+                      <img src={m.src} alt={m.name} title={m.name} loading="lazy" decoding="async" />
                     </span>
                   ))}
                 </span>
