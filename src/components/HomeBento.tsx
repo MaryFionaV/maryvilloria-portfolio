@@ -15,24 +15,8 @@ import {
   AppWindow,
   SealCheck,
 } from '@/components/slab'
-import { gymFunnel, bookingFunnel, websiteFunnel, type Funnel } from '@/data/funnels'
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
-
-/**
- * Home's showcase: one card per rail view, each an index of what that view
- * holds, each built from content the portfolio already ships. Every card is
- * a link. Nothing here invents a fact - the funnels, the tools, the clients
- * and the credentials are the same records the views render in full.
- *
- * Motion is transform-only on a clipped inner track, so a card never adds
- * height and Home stays a single viewport.
- */
-
-const thumbSrc = (f: Funnel) =>
-  `/home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
-
-const PROJECT_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0], gymFunnel[1]].filter(Boolean)
 
 const OFFERS = [
   { Icon: FunnelSimple, title: 'Statistical Analysis', note: 'ANCOVA, Regression & Pearson r' },
@@ -48,7 +32,6 @@ const CLIENTS = [
   { name: 'Freelance Research Clients', role: 'Data Analyst & Technical Writer', work: 'Logistic Regression · Excel · Reporting' },
 ]
 
-// Three photos of you, fanned. Small copies are fine - the fan shows them under 100px.
 const PHOTOS = [profile.avatarSrc, '/avatar.svg?2', '/avatar.svg?3']
 
 /** The AI systems as a flat list: every leaf of the Projects tree, in order. */
@@ -85,21 +68,22 @@ export default function HomeBento() {
 
   return (
     <nav className="bento" aria-label="Explore the portfolio">
-      {/* Projects: the funnel thumbnails drift upward on a looped track. */}
+      {/* Projects */}
       <Link to="/projects" className="bento__card bento__card--projects">
         <CardHead Icon={FolderOpen} title="Projects" desc="Explore predictive behavioral models, ANCOVA diagnostics, and APA 7th Chapter 4 quantitative studies." />
         <div className="bento__media bento__reel" aria-hidden="true">
           <div className="bento__reel-track">
-            {[...PROJECT_SHOTS, ...PROJECT_SHOTS].map((f, i) => (
-              <span key={i} className="bento__shot">
-                <img src={thumbSrc(f)} alt="" loading="lazy" decoding="async" />
-              </span>
-            ))}
+            <span className="bento__shot">
+              <img src="/placeholders/project-3.jpg" alt="" loading="lazy" decoding="async" />
+            </span>
+            <span className="bento__shot">
+              <img src="/placeholders/project-4.jpg" alt="" loading="lazy" decoding="async" />
+            </span>
           </div>
         </div>
       </Link>
 
-      {/* About: a fanned stack of photos. */}
+      {/* About */}
       <Link to="/about" className="bento__card bento__card--about">
         <CardHead Icon={User} title="About" desc="3rd-year BS Statistics student & freelance quantitative analyst specializing in end-to-end data workflows." />
         <div className="bento__media bento__fan" aria-hidden="true">
@@ -111,8 +95,7 @@ export default function HomeBento() {
         </div>
       </Link>
 
-      {/* AI builds: the systems from the Projects tree, two chip rows
-          scrolling against each other. */}
+      {/* Systems & Tools */}
       <Link to="/projects" className="bento__card bento__card--ai">
         <CardHead Icon={Robot} title="Systems & Tools" desc="Interactive tree of my core statistical tech stack across R, SPSS, Jamovi, and Excel." />
         <div className="bento__media bento__chips" aria-hidden="true">
@@ -131,7 +114,7 @@ export default function HomeBento() {
         </div>
       </Link>
 
-      {/* Credentials: the badge that matters, on its plate. */}
+      {/* Credentials */}
       <Link to="/about" className="bento__card bento__card--creds">
         <CardHead Icon={Medal} title="Credentials" desc="Consistent Dean's Lister & Sun Life Foundation Scholar with hands-on research expertise." />
         <div className="bento__media bento__badge" aria-hidden="true">
@@ -145,7 +128,7 @@ export default function HomeBento() {
         </div>
       </Link>
 
-      {/* Services: the five offers as a compact index. */}
+      {/* Services */}
       <Link to="/services" className="bento__card bento__card--services">
         <CardHead Icon={Stack} title="Services" desc="Statistical data cleaning, Chapter 4 narrative writing, and model diagnostics." />
         <ul className="bento__media bento__offers" role="list">
@@ -166,7 +149,7 @@ export default function HomeBento() {
         </ul>
       </Link>
 
-      {/* Testimonials: client cards drifting up a clipped column. */}
+      {/* Testimonials */}
       <Link to="/testimonials" className="bento__card bento__card--quotes">
         <CardHead Icon={Quotes} title="Testimonials" desc="Real feedback from quantitative research clients and academic collaborators." />
         <div className="bento__media bento__reviews" aria-hidden="true">
