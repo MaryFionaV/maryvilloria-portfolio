@@ -5,16 +5,6 @@ import Autopilot, { TOOLS } from '@/components/Autopilot'
 
 /**
  * ServicesGrid - the Services view on one glass sheet.
- *
- * Three bands, top to bottom: your three-step method (on a dark plate so it
- * is the first thing the eye lands on), the five services as cards that carry
- * the marks of what each one is built with, and the live automation demo
- * scaled into whatever height is left. Same object language as Home and
- * Projects: the glass, the bento card, plated marks, orange for the index
- * and the accent.
- *
- * Every string below is a PLACEHOLDER. Replace it, or hand this file to your
- * AI assistant and tell it what to put in each spot.
  */
 
 /* ---------- The method ---------- */
@@ -30,42 +20,35 @@ type Stage = {
 const STAGES: Stage[] = [
   {
     index: '01',
-    label: 'Step 1',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Data Preparation',
+    body: 'I organize, encode, and clean your raw survey data to ensure it is perfectly formatted for accurate statistical testing.',
     Icon: MagnetStraight,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4'],
+    chips: ['Data Cleaning', 'Encoding', 'Excel', 'Structuring'],
   },
   {
     index: '02',
-    label: 'Step 2',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Statistical Analysis',
+    body: 'I run rigorous descriptive and inferential tests, alongside full assumption and diagnostic checks for experimental designs.',
     Icon: Timer,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['R', 'SPSS', 'Jamovi', 'Diagnostics'],
   },
   {
     index: '03',
-    label: 'Step 3',
-    body: 'PLACEHOLDER - one line on the result the client gets.',
+    label: 'Chapter 4 Writing',
+    body: 'I translate the raw mathematical outputs into strict APA 7th Edition tables and defense-ready narrative interpretations.',
     Icon: Trophy,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['APA 7th', 'Narrative', 'Word', 'Defense-Ready'],
   },
 ]
 
 /* ---------- The services ---------- */
 
-// Example tool marks from /public/icons. Swap for the tools you actually use.
-const GHL = '/icons/gohighlevel.png'
-const REACT = '/icons/ai/react.svg'
-const TAILWIND = '/icons/ai/tailwindcss.svg'
-const VITE = '/icons/ai/vite.svg'
-const CLOUDFLARE = '/icons/ai/cloudflare.svg'
-const N8N = '/icons/ai/n8n.svg'
-const OPENAI = '/icons/openai.svg'
-const GWS = '/icons/googleworkspace.svg'
-const SLACK = '/icons/slack.svg'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const EXPO = '/icons/ai/expo.svg'
-const CHROME = '/icons/ai/googlechrome.svg'
+// Tool marks from /public/icons. Swap the actual image files in your public folder to match these paths!
+const R_LANG = '/icons/ai/react.svg' // Placeholder - swap with R logo
+const SPSS = '/icons/ai/tailwindcss.svg' // Placeholder - swap with SPSS logo
+const JAMOVI = '/icons/ai/vite.svg' // Placeholder - swap with Jamovi logo
+const EXCEL = '/icons/googleworkspace.svg' // Placeholder - swap with Excel logo
+const WORD = '/icons/slack.svg' // Placeholder - swap with Word logo
 
 type Service = {
   index: string
@@ -76,53 +59,70 @@ type Service = {
   bullets: string[]
 }
 
-const BULLETS = ['PLACEHOLDER benefit 1', 'PLACEHOLDER benefit 2', 'PLACEHOLDER benefit 3']
-const SERVICE_DESC = 'PLACEHOLDER - one line on this service.'
-
 const SERVICES: Service[] = [
   {
     index: '01',
-    title: 'Service One',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, REACT, TAILWIND],
-    bullets: BULLETS,
+    title: 'Descriptive Statistics Only',
+    description: 'Strictly for Descriptive Statistics (Frequency, Percentage, Mean, Standard Deviation).',
+    chip: '₱300 – ₱500',
+    logos: [EXCEL, SPSS, WORD],
+    bullets: [
+      'Option 1 (₱500): Computations, complete APA format tables, plus short descriptive conclusions under each table[cite: 3].',
+      'Option 2 (₱400): Computations and APA tables only (kayo na mag-write sa conclusions)[cite: 3].',
+      'Option 3 (₱300): Raw data computation/list of means only (kayo na mag-format sa tables and conclusions)[cite: 3].',
+    ],
   },
   {
     index: '02',
-    title: 'Service Two',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, N8N, OPENAI],
-    bullets: BULLETS,
+    title: 'Inferential Statistics (Add-On / Combined)',
+    description: 'For research requiring tests for significant relationships or differences.',
+    chip: '+₱500 / ₱1,000',
+    logos: [R_LANG, JAMOVI, SPSS],
+    bullets: [
+      'Inferential Add-on (+₱500): Separate computations and set of APA tables for tests like Pearson r or T-test[cite: 3].',
+      'Overall Descriptive and Inferential Package (₱1,000): Full computations and complete APA format tables[cite: 3].',
+      'Combined package includes short descriptive conclusions specifically under each descriptive statistics table[cite: 3].',
+    ],
   },
   {
     index: '03',
-    title: 'Service Three',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, GWS, SLACK],
-    bullets: BULLETS,
+    title: 'Quantitative Chapter 4 Package',
+    description: 'The complete Results & Discussion section for your quantitative research paper.',
+    chip: '₱1,500 – ₱1,800',
+    logos: [R_LANG, SPSS, WORD],
+    bullets: [
+      'I will personally build the entire Chapter 4 from scratch[cite: 3].',
+      'Includes all computations and publication-ready APA tables[cite: 3].',
+      'Features the full discussion and paragraphs. Price varies depending on how many categories are involved (₱1,500 - ₱1,800)[cite: 3].',
+    ],
   },
   {
     index: '04',
-    title: 'Service Four',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [REACT, VITE, CLOUDFLARE],
-    bullets: BULLETS,
+    title: 'Quasi-Experimental Chapter 4 Package',
+    description: 'A comprehensive Chapter 4 package tailored for the rigor of quasi-experimental research.',
+    chip: '₱1,800',
+    logos: [R_LANG, JAMOVI, WORD],
+    bullets: [
+      'Whole Chapter 4 package dedicated to experimental methodology[cite: 3].',
+      'Includes both descriptive and inferential statistics[cite: 3].',
+      'Features comprehensive diagnostic and assumption checks (e.g., Normality, Homogeneity)[cite: 3].',
+    ],
   },
   {
     index: '05',
-    title: 'Service Five',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [CLAUDE_CODE, EXPO, CHROME],
-    bullets: BULLETS,
+    title: 'Data Encoding & Rush Services',
+    description: 'Flexible add-ons to meet urgent deadlines and handle raw data entry.',
+    chip: 'Variable Rate',
+    logos: [EXCEL],
+    bullets: [
+      'Encoding Fee (₱3 - ₱5.00 per observation/per row): Pricing scales depending on the complexity of the data[cite: 3].',
+      'Rush Fee (₱300 - ₱500): Fast-tracked turnaround within a 3 - 4 day window[cite: 3].',
+      'Rush availability and final fees depend on negotiation and current schedule bandwidth[cite: 3].',
+    ],
   },
 ]
 
-/** The tool marks, stacked horizontally on white tiles (same as Projects). */
+/** The tool marks, stacked horizontally on white tiles. */
 function Marks({ logos }: { logos: string[] }) {
   return (
     <span className="bento__logos" aria-hidden="true">
@@ -141,28 +141,26 @@ export default function ServicesGrid() {
   return (
     <section className="pgrid sgrid" aria-labelledby="services-title">
       <header className="pgrid__head">
-        <span className="pgrid__eyebrow">Services</span>
+        <span className="pgrid__eyebrow">Services & Rates</span>
         <h1 className="pgrid__title" id="services-title">
-          Your services headline, in one short line.
+          Statistical Analysis & Chapter 4 Writing.
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you offer.
+          Friendly, reliable, and standard APA-formatted statistical services tailored to your research needs and student budget.
         </p>
       </header>
 
       <div className="home__glass sgrid__glass">
-        {/* One dark plate, the headline on the left, the three stages wired
-            in order on the right with a signal running them. */}
         <div className="sgrid__method" aria-labelledby="method-title">
           <div className="sgrid__method-copy">
-            <span className="sgrid__method-eyebrow">Your Method</span>
+            <span className="sgrid__method-eyebrow">My Workflow</span>
             <h2 className="sgrid__method-title" id="method-title">
-              One. Two. Three.
+              Clean. Compute. Write.
               <br />
-              <span>Your method, in three steps.</span>
+              <span>A defense-ready process.</span>
             </h2>
             <p className="sgrid__method-sub">
-              PLACEHOLDER - one sentence on why your method works.
+              Every dataset is unique, but a rigorous, step-by-step approach ensures accurate p-values and panel-proof methodology.
             </p>
           </div>
 
@@ -188,11 +186,10 @@ export default function ServicesGrid() {
           </ol>
         </div>
 
-        {/* Five cards, each carrying the marks of what it is built with. */}
         <div className="sgrid__offers">
           <div className="sgrid__offers-head">
-            <h2 className="sgrid__offers-title">Your services, listed.</h2>
-            <p className="sgrid__offers-sub">PLACEHOLDER - one short nudge.</p>
+            <h2 className="sgrid__offers-title">Freelance Rate Card.</h2>
+            <p className="sgrid__offers-sub">Select the package that fits your thesis requirements.</p>
           </div>
           <ul className="bento sgrid__services" role="list">
             {SERVICES.map((s) => (
@@ -219,15 +216,13 @@ export default function ServicesGrid() {
           </ul>
         </div>
 
-        {/* The live workflow. Its caption and the tool chips sit in a header
-            above the window, so the canvas gets the whole glass width. */}
         <div className="sgrid__flow">
           <header className="sgrid__flow-head">
             <div className="sgrid__flow-copy">
-              <span className="sgrid__flow-eyebrow">Live automation</span>
-              <h2 className="sgrid__flow-title">Your automation headline.</h2>
+              <span className="sgrid__flow-eyebrow">Data Pipeline</span>
+              <h2 className="sgrid__flow-title">Rigorous Assumption Testing.</h2>
               <p className="sgrid__flow-sub">
-                PLACEHOLDER - tell me what to put here: one sentence on what this example automation does for a client.
+                Ensuring statistical validity through automated diagnostic checks before interpreting the final model.
               </p>
             </div>
             <ul className="sgrid__flow-tools" role="list" aria-label="Tools that power this flow">
