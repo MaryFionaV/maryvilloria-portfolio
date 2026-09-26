@@ -11,6 +11,7 @@ const JAMOVI = { src: '/icons/jamovi.svg', name: 'Jamovi' }
 const EXCEL = { src: '/icons/excel.svg', name: 'Excel' }
 const PYTHON = { src: '/icons/python.svg', name: 'Python' }
 const TABLEAU = { src: '/icons/tableau.svg', name: 'Tableau' }
+const SQL = { src: '/icons/sql.svg', name: 'SQL' }
 const GITHUB = { src: '/icons/ai/github.svg', name: 'GitHub' }
 const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
 
@@ -29,7 +30,7 @@ const CAPABILITIES: Capability[] = [
   {
     index: '02',
     title: 'Statistical Data Cleaning & Model Diagnostics',
-    marks: [R_LANG, EXCEL, PYTHON],
+    marks: [R_LANG, EXCEL, PYTHON, SQL],
   },
   {
     index: '03',
@@ -51,7 +52,6 @@ export default function AboutGrid() {
         <h1 className="pgrid__title" id="about-title">
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
-        {/* Lede line removed to prevent overlapping header text in fixed viewport */}
       </header>
 
       <div className="home__glass agrid__glass">
