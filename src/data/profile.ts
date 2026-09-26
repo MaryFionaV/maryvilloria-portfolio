@@ -12,8 +12,10 @@
 
 export type SocialLink = {
   name?: string
-  href: string
-  icon: string
+  href?: string
+  url?: string
+  icon?: string
+  iconPath?: string
 }
 
 export type Stat = { value: string; label: string }
@@ -66,12 +68,14 @@ export const profile: Profile = {
   },
   socials: [
   {
+    name: 'LinkedIn',
     href: 'https://linkedin.com/in/your-linkedin-handle',
     icon: '/icons/linkedin.svg',
   },
   {
+    name: 'GitHub',
     href: 'https://github.com/MaryFionaV',
     icon: '/icons/github.svg',
   },
-],
+ ],
 }
