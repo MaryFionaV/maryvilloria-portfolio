@@ -104,7 +104,7 @@ export default function HomeBento() {
         <CardHead 
           Icon={Medal} 
           title="Credentials" 
-          desc="Consistent Rizal Lister (1.13 CGPA) at MSU, Sun Life Scholar & Cisco Certified in Data Analytics." 
+          desc="Consistent Rizal Lister (1.13 CGPA) at MSU-IIT, Sun Life Scholar & Cisco Certified in Data Analytics." 
         />
         <div className="bento__media bento__badge" aria-hidden="true">
           <span className="bento__badge-ring">
