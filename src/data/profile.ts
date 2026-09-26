@@ -73,12 +73,14 @@ export const profile: Profile = {
       name: 'LinkedIn',
       href: 'https://linkedin.com/in/your-linkedin-handle',
       icon: '/icons/linkedin.svg',
+      iconPath: '/icons/linkedin.svg',
     },
     {
       label: 'GitHub',
       name: 'GitHub',
       href: 'https://github.com/MaryFionaV',
       icon: '/icons/github.svg',
+      iconPath: '/icons/github.svg',
     },
   ],
 }
