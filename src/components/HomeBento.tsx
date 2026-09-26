@@ -129,9 +129,9 @@ export default function HomeBento() {
       </Link>
 
       {/* Services */}
-<Link to="/services" className="bento__card bento__card--services">
-  <CardHead Icon={Stack} title="Services" desc="Statistical data cleaning, Chapter 4 narrative writing, and model diagnostics." />
-</Link>
+      <Link to="/services" className="bento__card bento__card--services">
+        <CardHead Icon={Stack} title="Services" desc="Statistical data cleaning, Chapter 4 narrative writing, and model diagnostics." />
+      </Link>
 
       {/* Testimonials */}
       <Link to="/testimonials" className="bento__card bento__card--quotes">
