@@ -7,12 +7,6 @@ import {
   Medal,
   Stack,
   Quotes,
-  FunnelSimple,
-  Gear,
-  AddressBook,
-  Globe,
-  AppWindow,
-  SealCheck,
 } from '@/components/slab'
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
@@ -111,10 +105,6 @@ export default function HomeBento() {
         <div className="bento__media bento__badge" aria-hidden="true">
           <span className="bento__badge-ring">
             <img src="/placeholders/badge.svg" alt="" width={72} height={72} />
-          </span>
-          <span className="bento__badge-tag">
-            <SealCheck size={14} weight="fill" />
-            BS Statistics Scholar
           </span>
         </div>
       </Link>
