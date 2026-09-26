@@ -3,42 +3,35 @@ import { ArrowUpRight, MapPin } from '@/components/slab'
 import { profile } from '@/data/profile'
 
 /**
- * AboutGrid - the About view as a fixed viewport.
+ * AboutGrid - Fixed layout without text collisions or mismatched icons.
  */
-
-const N8N = { src: '/icons/ai/n8n.svg', name: 'R' }
-const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Jamovi' }
-const DOCKER = { src: '/icons/ai/docker.svg', name: 'SPSS' }
-const CLAUDE = { src: '/icons/ai/claude-color.svg', name: 'Excel' }
-const GITHUB = { src: '/icons/ai/github.svg', name: 'GitHub' }
-const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
 
 type Capability = {
   index: string
   title: string
-  marks: { src: string; name: string }[]
+  tools: string[]
 }
 
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
     title: 'Quantitative Research & Chapter 4 Writing',
-    marks: [N8N, ZAPIER, DOCKER],
+    tools: ['R', 'SPSS', 'Jamovi'],
   },
   {
     index: '02',
     title: 'Statistical Data Cleaning & Model Diagnostics',
-    marks: [CLAUDE, GITHUB],
+    tools: ['R', 'Excel', 'Python'],
   },
   {
     index: '03',
     title: 'Survey Analytics & Visual Dashboards',
-    marks: [CLAUDE, GWS],
+    tools: ['Excel', 'Tableau', 'GSuite'],
   },
   {
     index: '04',
     title: 'Predictive & Behavioral Data Modeling',
-    marks: [N8N, ZAPIER, CLAUDE],
+    tools: ['R', 'SPSS', 'Jamovi'],
   },
 ]
 
@@ -50,9 +43,7 @@ export default function AboutGrid() {
         <h1 className="pgrid__title" id="about-title">
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
-        <p className="pgrid__lede">
-          Junior Quantitative Analyst & BS Statistics Student at Mindanao State University.
-        </p>
+        {/* Left empty intentionally to prevent text collision/overlap with the glass card */}
       </header>
 
       <div className="home__glass agrid__glass">
@@ -63,24 +54,33 @@ export default function AboutGrid() {
           </p>
 
           <p className="agrid__note">
-            <strong>Mindanao State University</strong> student and{' '}
-            <span className="agrid__link">
-              freelance analyst
-            </span>{' '}
-            offering end-to-end quantitative research consulting, statistical data cleaning, and APA 7th Chapter 4 reporting for academic and research clients.
+            <strong>BS Statistics Student at MSU-IIT</strong> and{' '}
+            <span className="agrid__link">freelance quantitative analyst</span>{' '}
+            offering end-to-end research consulting, data cleaning, model diagnostics, and APA 7th reporting.
           </p>
 
           <ul className="agrid__caps" role="list">
             {CAPABILITIES.map((c) => (
               <li key={c.index} className="agrid__cap">
                 <span className="agrid__cap-marks">
-                  {c.marks.map((m, i) => (
+                  {c.tools.map((tool, i) => (
                     <span
-                      key={`${m.name}-${i}`}
+                      key={`${tool}-${i}`}
                       className="agrid__mark"
-                      style={{ '--i': c.marks.length - i } as CSSProperties}
+                      style={{
+                        '--i': c.tools.length - i,
+                        fontSize: '11px',
+                        fontWeight: '600',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '2px 6px',
+                        borderRadius: '6px',
+                        background: 'rgba(0,0,0,0.05)',
+                        color: 'var(--fg, #1a1a1a)'
+                      } as CSSProperties}
                     >
-                      <img src={m.src} alt={m.name} loading="lazy" decoding="async" />
+                      {tool}
                     </span>
                   ))}
                 </span>
@@ -96,7 +96,13 @@ export default function AboutGrid() {
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/icons/cisco-badge.png" alt="Cisco Certification" loading="lazy" decoding="async" onError={(e) => { (e.target as HTMLElement).style.display = 'none' }} />
+                <img 
+                  src="/icons/cisco-badge.png" 
+                  alt="Cisco Certification" 
+                  loading="lazy" 
+                  decoding="async" 
+                  onError={(e) => { (e.target as HTMLElement).style.display = 'none' }} 
+                />
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">Cisco Data Analytics</span>
@@ -116,7 +122,7 @@ export default function AboutGrid() {
 
             <div className="agrid__cell agrid__cell--wide">
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Mindanao State University</span>
+                <span className="agrid__cell-title">MSU-IIT</span>
                 <span className="agrid__cell-meta">Rizal Lister (1.13 CGPA) · Sun Life Scholar</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
