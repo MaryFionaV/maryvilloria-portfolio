@@ -4,30 +4,14 @@ import { profile } from '@/data/profile'
 
 /**
  * AboutGrid - the About view as a fixed viewport.
- *
- * One glass sheet, two columns: who you are on the left, the illustration
- * on the right. Sized to the panel, so nothing here scrolls.
- *
- * The left column is a ladder, not a paragraph block: one display statement,
- * one line of context, then the four things you do - each carrying the marks
- * of the tools it is built with. The tools are the proof, so they are the
- * visual. Swap the marks below for your own (any square SVG/PNG in public/).
  */
 
-const N8N = { src: '/icons/ai/n8n.svg', name: 'n8n' }
-const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Zapier' }
-const DOCKER = { src: '/icons/ai/docker.svg', name: 'Docker' }
-const CLAUDE = { src: '/icons/ai/claude-color.svg', name: 'Claude' }
-const CODEX = { src: '/icons/ai/codex.svg', name: 'Codex' }
-const GLM = { src: '/icons/ai/zhipu.svg', name: 'GLM' }
-const QWEN = { src: '/icons/ai/qwen.svg', name: 'Qwen' }
-const HERMES = { src: '/icons/ai/hermes.svg', name: 'Hermes' }
-const NAMECHEAP = { src: '/icons/ai/namecheap.svg', name: 'Namecheap' }
-const CLOUDFLARE = { src: '/icons/ai/cloudflare.svg', name: 'Cloudflare' }
+const N8N = { src: '/icons/ai/n8n.svg', name: 'R' }
+const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Jamovi' }
+const DOCKER = { src: '/icons/ai/docker.svg', name: 'SPSS' }
+const CLAUDE = { src: '/icons/ai/claude-color.svg', name: 'Excel' }
 const GITHUB = { src: '/icons/ai/github.svg', name: 'GitHub' }
 const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
-const SLACK = { src: '/icons/ai/slack-color.svg', name: 'Slack' }
-const FIREFLIES = { src: '/icons/ai/fireflies.png', name: 'Fireflies' }
 
 type Capability = {
   index: string
@@ -38,23 +22,23 @@ type Capability = {
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
-    title: 'Your role 1',
+    title: 'Quantitative Research & Chapter 4 Writing',
     marks: [N8N, ZAPIER, DOCKER],
   },
   {
     index: '02',
-    title: 'Your role 2',
-    marks: [CLAUDE, CODEX, GLM, QWEN, HERMES],
+    title: 'Statistical Data Cleaning & Model Diagnostics',
+    marks: [CLAUDE, GITHUB],
   },
   {
     index: '03',
-    title: 'Your role 3',
-    marks: [CLAUDE, CODEX, NAMECHEAP, CLOUDFLARE, GITHUB],
+    title: 'Survey Analytics & Visual Dashboards',
+    marks: [CLAUDE, GWS],
   },
   {
     index: '04',
-    title: 'Your role 4',
-    marks: [GWS, SLACK, FIREFLIES],
+    title: 'Predictive & Behavioral Data Modeling',
+    marks: [N8N, ZAPIER, CLAUDE],
   },
 ]
 
@@ -67,24 +51,23 @@ export default function AboutGrid() {
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you do.
+          Junior Quantitative Analyst & BS Statistics Student at Mindanao State University.
         </p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            Your big statement goes here, in one or two lines.
-            <span> A softer second half that finishes the thought.</span>
+            Translating complex raw data into actionable statistical insights.
+            <span> Specializing in predictive modeling, survey analytics, and defense-ready thesis reporting.</span>
           </p>
 
           <p className="agrid__note">
-            <strong>Your company name</strong>, and{' '}
-            <a className="agrid__link" href="#">
-              your product
-            </a>{' '}
-            - PLACEHOLDER - tell me what to put here: two sentences on your company, what
-            you sell or build, and who it is for.
+            <strong>Mindanao State University</strong> student and{' '}
+            <span className="agrid__link">
+              freelance analyst
+            </span>{' '}
+            offering end-to-end quantitative research consulting, statistical data cleaning, and APA 7th Chapter 4 reporting for academic and research clients.
           </p>
 
           <ul className="agrid__caps" role="list">
@@ -93,7 +76,7 @@ export default function AboutGrid() {
                 <span className="agrid__cap-marks">
                   {c.marks.map((m, i) => (
                     <span
-                      key={m.name}
+                      key={`${m.name}-${i}`}
                       className="agrid__mark"
                       style={{ '--i': c.marks.length - i } as CSSProperties}
                     >
@@ -109,15 +92,15 @@ export default function AboutGrid() {
             ))}
           </ul>
 
-          {/* One plate, two cells sharing a mark / title / meta anatomy. */}
+          {/* Bottom Bar: Credentials, Location & Affiliation */}
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/placeholders/badge.svg" alt="" loading="lazy" decoding="async" />
+                <img src="/icons/cisco-badge.png" alt="Cisco Certification" loading="lazy" decoding="async" onError={(e) => { (e.target as HTMLElement).style.display = 'none' }} />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Credential name</span>
-                <span className="agrid__cell-meta">Credential ID</span>
+                <span className="agrid__cell-title">Cisco Data Analytics</span>
+                <span className="agrid__cell-meta">Verified Completion</span>
               </span>
             </span>
 
@@ -127,27 +110,25 @@ export default function AboutGrid() {
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">{profile.location}</span>
-                <span className="agrid__cell-meta">Timezone · working hours</span>
+                <span className="agrid__cell-meta">PST (GMT+8) · Freelance</span>
               </span>
             </span>
 
-            <a className="agrid__cell agrid__cell--wide" href="#">
-              <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/placeholders/logo.svg" alt="" loading="lazy" decoding="async" />
-              </span>
+            <div className="agrid__cell agrid__cell--wide">
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Community or affiliation</span>
-                <span className="agrid__cell-meta">Your role there</span>
+                <span className="agrid__cell-title">Mindanao State University</span>
+                <span className="agrid__cell-meta">Rizal Lister (1.13 CGPA) · Sun Life Scholar</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
-            </a>
+            </div>
           </div>
         </div>
 
+        {/* Main Portrait Column */}
         <div className="agrid__portrait">
           <img
-            src="/avatar.svg"
-            alt="Portrait placeholder"
+            src={profile.avatarSrc}
+            alt={profile.name}
             loading="eager"
             decoding="async"
             width={400}
