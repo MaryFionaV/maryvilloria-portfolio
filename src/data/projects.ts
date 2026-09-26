@@ -31,7 +31,7 @@ export const webApps: AppProject[] = [
       { value: '27', label: 'Variables Tested' },
       { value: '0.85', label: 'AUC Score' },
     ],
-    badge: 'R & SPSS',
+    badge: 'R',
   },
   {
     name: 'Compensation & Productivity Analytics',
@@ -60,26 +60,26 @@ export const webApps: AppProject[] = [
   },
   {
     name: 'Quasi-Experimental Chapter 4 Analysis',
-    tagline: 'Running ANCOVA and assumption diagnostics in Jamovi.',
-    description: 'I handled full data cleaning and percentage standardization across unequal test lengths before running the ANCOVA model in Jamovi[cite: 4]. I executed full diagnostic assumption checks—including Shapiro-Wilk for normality, Levene\'s test for homogeneity of variance, and interaction models for regression slopes—and translated the raw output into clean APA 7th Edition tables and Chapter 4 narratives[cite: 4].',
+    tagline: 'Running ANCOVA and assumption diagnostics in R and Jamovi.',
+    description: 'I handled unequal test item counts by standardizing raw student scores to percentages before running the ANCOVA model[cite: 5]. I cross-checked my R calculations with Jamovi using Type III Sum of Squares and verified all model assumptions, including Shapiro-Wilk for normality, Levene\'s test for homogeneity of variance, and homogeneity of regression slopes[cite: 5].',
     imageSrc: '/placeholders/project-4.jpg',
     accentColor: '#0891B2',
     stats: [
-      { value: 'Jamovi', label: 'ANCOVA' },
-      { value: '100%', label: 'APA 7th Format' },
-      { value: '4', label: 'Diagnostics Run' },
+      { value: 'R & Jamovi', label: 'ANCOVA' },
+      { value: 'Type III', label: 'Sum of Squares' },
+      { value: '100%', label: 'Assumptions Met' },
     ],
     badge: 'Quasi-Experimental',
   },
   {
     name: 'Quantitative Correlational Research',
-    tagline: 'Translating Likert scales and correlational data into defense-ready chapters.',
-    description: 'I designed hybrid Likert scales to combine survey options with literature-based interpretations[cite: 4]. I also analyzed correlational data and drafted defense-ready Chapter 4 narratives that professionally addressed statistical limitations, explaining exactly how a small sample size (N=30) impacts p-values and correlation coefficients (r = .007)[cite: 4].',
+    tagline: 'Evaluating program impact through descriptive and correlational analysis.',
+    description: 'I analyzed the impact of a School-Based Feeding Program on learner attendance using descriptive statistics and Pearson\'s r correlation[cite: 4]. I drafted a defense-ready Chapter 4 narrative that formatted Likert scale results into clean APA tables and practically addressed real-world statistical realities, explaining how a ceiling effect in attendance (94.81%) and a small sample size (N=30) contextualized a negligible, non-significant correlation (r = .007, p = .970)[cite: 4].',
     accentColor: '#F59E0B',
     stats: [
       { value: 'N=30', label: 'Sample Size' },
+      { value: 'Pearson\'s r', label: 'Correlation' },
       { value: 'Chapter 4', label: 'Full Narrative' },
-      { value: 'r & p', label: 'Correlations' },
     ],
     badge: 'Quantitative Research',
   }
