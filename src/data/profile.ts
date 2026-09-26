@@ -65,15 +65,13 @@ export const profile: Profile = {
     portraitAlt: 'Mary Fiona Villoria Portrait',
   },
   socials: [
-    {
-      name: 'LinkedIn',
-      url: 'https://linkedin.com/in/your-linkedin-username', // Put your actual link here
-      iconPath: '/icons/linkedin.svg',
-    },
-    {
-      name: 'GitHub',
-      url: 'https://github.com/MaryFionaV', // Your GitHub link
-      iconPath: '/icons/github.svg',
-    },
-  ],
+  {
+    url: 'https://linkedin.com/in/your-linkedin-handle',
+    iconPath: '/icons/linkedin.svg',
+  },
+  {
+    url: 'https://github.com/MaryFionaV',
+    iconPath: '/icons/github.svg',
+  },
+ ],
 }
