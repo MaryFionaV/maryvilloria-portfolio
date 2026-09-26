@@ -8,7 +8,7 @@
  *
  * Page-specific copy (projects, services, testimonials, FAQs) lives in the
  * other files in src/data/ and at the top of each view component.
- */
+ */ 
 
 export type SocialLink = {
   name?: string
