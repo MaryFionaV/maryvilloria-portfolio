@@ -1,4 +1,3 @@
-import type React from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArrowUpRight,
@@ -17,14 +16,6 @@ import {
 } from '@/components/slab'
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
-
-const OFFERS = [
-  { Icon: FunnelSimple, title: 'Statistical Analysis', note: 'ANCOVA, Regression & Pearson r' },
-  { Icon: Gear, title: 'Chapter 4 Writing', note: 'Defense-ready APA 7th narratives' },
-  { Icon: AddressBook, title: 'Data Cleaning', note: 'Outlier treatment & standardization' },
-  { Icon: Globe, title: 'Model Diagnostics', note: 'Normality, VIF & Homogeneity' },
-  { Icon: AppWindow, title: 'Survey Analytics', note: 'Pivot tables & custom data viz' },
-] as const
 
 const CLIENTS = [
   { name: 'Undergraduate Researchers', role: 'Thesis Statistical Consultant', work: 'ANCOVA · R & Jamovi · APA 7th' },
