@@ -3,7 +3,7 @@ import { ArrowUpRight, MapPin } from '@/components/slab'
 import { profile } from '@/data/profile'
 
 /**
- * Define tool icons pointing to image files in public/icons/
+ * Define tool icons pointing to images in public/icons/
  */
 const R_LANG = { src: '/icons/r.svg', name: 'R' }
 const SPSS = { src: '/icons/spss.svg', name: 'SPSS' }
@@ -52,22 +52,18 @@ export default function AboutGrid() {
         <h1 className="pgrid__title" id="about-title">
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
-        <p className="pgrid__lede">
-          Junior Quantitative Analyst & BS Statistics Student at MSU-IIT
-        </p>
       </header>
 
       <div className="home__glass agrid__glass">
-        <div className="agrid__copy" style={{ paddingTop: '1.25rem' }}>
-          <p className="agrid__lead" style={{ marginTop: 0 }}>
+        <div className="agrid__copy">
+          <p className="agrid__lead">
             Translating complex raw data into actionable statistical insights.
-            <span> Specializing in predictive modeling and defense-ready thesis reporting.</span>
           </p>
 
           <p className="agrid__note">
             <strong>BS Statistics Student at MSU-IIT</strong> and{' '}
             <span className="agrid__link">freelance quantitative analyst</span>{' '}
-            offering end-to-end research consulting, data cleaning, model diagnostics, and APA 7th reporting.
+            specializing in predictive modeling, survey analytics, model diagnostics, and defense-ready APA 7th thesis reporting.
           </p>
 
           <ul className="agrid__caps" role="list">
