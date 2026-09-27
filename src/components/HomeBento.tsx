@@ -70,7 +70,12 @@ export default function HomeBento() {
 
       {/* About */}
       <Link to="/about" className="bento__card bento__card--about">
-        <CardHead Icon={User} title="About" desc="3rd-year BS Statistics student & freelance quantitative analyst specializing in end-to-end data workflows." />
+        <CardHead 
+          Icon={User} 
+          title="About" 
+          desc="3rd-year BS Statistics student & freelance quantitative analyst specializing in end-to-end data workflows." 
+        />
+        {/* Photo stack removed:
         <div className="bento__media bento__fan" aria-hidden="true">
           {PHOTOS.map((src, i) => (
             <span key={src} className="bento__photo" style={{ ['--i' as string]: i }}>
@@ -78,6 +83,7 @@ export default function HomeBento() {
             </span>
           ))}
         </div>
+        */}
       </Link>
 
       {/* Systems & Tools */}
