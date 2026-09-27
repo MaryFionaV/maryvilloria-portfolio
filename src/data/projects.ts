@@ -17,26 +17,28 @@ export type AppProject = {
 /** @deprecated use AppProject */
 export type MobileApp = AppProject
 
-// I am keeping this empty since my focus is on quantitative research and data analytics, not mobile apps!
+// Kept empty since the focus is on quantitative research and data analytics
 export const mobileApps: MobileApp[] = []
 
 export const webApps: AppProject[] = [
   {
     name: 'Predictive Behavioral & Risk Analytics',
     tagline: 'Isolating key performance drivers with machine learning.',
-    description: 'Conducted end-to-end data analysis and engineered a binary classification model in R to isolate key performance drivers. I evaluated 27 demographic and behavioral variables, performed rigorous VIF and Shapiro-Wilk diagnostics, and validated the model on 380+ subject records.',
+    description:
+      'Conducted end-to-end data analysis and engineered a binary classification model in R to isolate key performance drivers. Evaluated 27 demographic and behavioral variables, performed rigorous VIF and Shapiro-Wilk diagnostics, and validated the model on 380+ subject records.',
     accentColor: '#2563EB',
     stats: [
       { value: '380+', label: 'Subject Records' },
       { value: '27', label: 'Variables Tested' },
       { value: '0.85', label: 'AUC Score' },
     ],
-    badge: 'R',
+    badge: 'R & ML',
   },
   {
     name: 'Compensation & Productivity Analytics',
     tagline: 'Optimizing predictive power through linear regression.',
-    description: 'Developed and benchmarked multiple linear regression models in R to optimize predictive power. I used an 80/20 train-test cross-validation strategy and focused heavily on translating statistical outputs—like p-values and Odds Ratios—into plain-English, actionable recommendations for clients.',
+    description:
+      'Developed and benchmarked multiple linear regression models in R to optimize predictive power. Applied an 80/20 train-test cross-validation strategy and focused on translating statistical outputs—such as p-values and Odds Ratios—into plain-English, actionable executive recommendations.',
     accentColor: '#7C3AED',
     stats: [
       { value: '80/20', label: 'Train/Test Split' },
@@ -48,7 +50,8 @@ export const webApps: AppProject[] = [
   {
     name: 'Survey Analytics & Visual Reporting',
     tagline: 'Transforming raw survey responses into executive presentations.',
-    description: 'Designed survey instruments and processed the raw responses in Excel using Pivot Tables and advanced formulas. I cleaned the datasets, built comparative charts, and formatted all technical reports to strict APA 7th Edition standards.',
+    description:
+      'Designed survey instruments and processed raw responses in Excel using Pivot Tables and advanced formulas. Cleaned datasets, generated comparative data visualizations, and formatted all technical reports to strict APA 7th Edition standards.',
     imageSrc: '/placeholders/project-3.jpg',
     accentColor: '#16A34A',
     stats: [
@@ -61,7 +64,8 @@ export const webApps: AppProject[] = [
   {
     name: 'Quasi-Experimental Chapter 4 Analysis',
     tagline: 'Running ANCOVA and assumption diagnostics in R and Jamovi.',
-    description: 'I handled unequal test item counts by standardizing raw student scores to percentages before running the ANCOVA model[cite: 5]. I cross-checked my R calculations with Jamovi using Type III Sum of Squares and verified all model assumptions, including Shapiro-Wilk for normality, Levene\'s test for homogeneity of variance, and homogeneity of regression slopes[cite: 5].',
+    description:
+      'Handled unequal test item counts across groups by standardizing raw student scores to percentages prior to ANCOVA modeling. Cross-validated R calculations with Jamovi using Type III Sum of Squares and verified all model assumptions, including Shapiro-Wilk for normality, Levene’s test for homogeneity of variance, and homogeneity of regression slopes.',
     imageSrc: '/placeholders/project-4.jpg',
     accentColor: '#0891B2',
     stats: [
@@ -74,13 +78,14 @@ export const webApps: AppProject[] = [
   {
     name: 'Quantitative Correlational Research',
     tagline: 'Evaluating program impact through descriptive and correlational analysis.',
-    description: 'I analyzed the impact of a School-Based Feeding Program on learner attendance using descriptive statistics and Pearson\'s r correlation[cite: 4]. I drafted a defense-ready Chapter 4 narrative that formatted Likert scale results into clean APA tables and practically addressed real-world statistical realities, explaining how a ceiling effect in attendance (94.81%) and a small sample size (N=30) contextualized a negligible, non-significant correlation (r = .007, p = .970)[cite: 4].',
+    description:
+      'Analyzed program impact on learner attendance using descriptive statistics and Pearson’s r correlation. Authored a defense-ready Chapter 4 narrative with APA-formatted tables, contextualizing statistical realities such as an attendance ceiling effect (94.81%) and small sample size (N=30) on correlation outcomes (r = .007, p = .970).',
     accentColor: '#F59E0B',
     stats: [
       { value: 'N=30', label: 'Sample Size' },
-      { value: 'Pearson\'s r', label: 'Correlation' },
+      { value: "Pearson's r", label: 'Correlation' },
       { value: 'Chapter 4', label: 'Full Narrative' },
     ],
     badge: 'Quantitative Research',
-  }
+  },
 ]
