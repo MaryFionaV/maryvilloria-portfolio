@@ -9,7 +9,7 @@ import {
   Quotes,
 } from '@/components/slab'
 import { aiStack, type StackNode } from '@/data/ai-stack'
-import { profile } from '@/data/profile'
+/** import { profile } from '@/data/profile' */
 
 const CLIENTS = [
   { name: 'Undergraduate Researchers', role: 'Thesis Statistical Consultant', work: 'ANCOVA · R & Jamovi · APA 7th' },
