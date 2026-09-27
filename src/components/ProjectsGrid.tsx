@@ -11,11 +11,7 @@ import { useIsPhone } from '@/hooks/useMediaQuery'
 /**
  * Projects, as one viewport in Home's bento language: a glass panel of six
  * cards, each previewing its own body of work with a live inner track, each
- * opening the work itself in a near-fullscreen dialog (see ProjectPanels for
- * the first three; the rest are the sections the long page used to stack).
- *
- * The dialog is a portal at z 8000, under the funnel preview (9000) so the
- * barrel's own "open this page" dialog can still stack on top of it.
+ * opening the work itself in a near-fullscreen dialog.
  */
 type Project = {
   id: string
@@ -44,7 +40,7 @@ const FILTERS: { key: Cat | 'all'; label: string }[] = [
   { key: 'ai', label: 'AI' },
 ]
 
-/** Example tool marks, from public/icons. Swap for what you build with. */
+/** Tool marks */
 const GHL = '/icons/gohighlevel.png'
 const CLAUDE_CODE = '/icons/claude-code-logo.png'
 const CODEX = '/icons/ai/codex.svg'
@@ -66,14 +62,47 @@ const APP_SHOTS = [
   '/placeholders/extension-2.jpg',
 ]
 
-const BUILD_DESC = 'PLACEHOLDER - tell me what to put here: two lines on what this project is and the result it got.'
-
-/** The three featured builds: each its own card in the stack, each its own
- *  pop-up. */
+/** The three featured builds: each its own card in the stack */
 const BUILDS: Project[] = [
-  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Placeholder category', title: 'Featured Project One', desc: BUILD_DESC, Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Featured build', Section: TicketingPanel, Preview: () => null },
-  { id: 'framework', cat: 'ai', index: '04', kicker: 'Placeholder category', title: 'Featured Project Two', desc: BUILD_DESC, Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE], eyebrow: 'Featured build', Section: FrameworkPanel, Preview: () => null },
-  { id: 'workflow', cat: 'ai', index: '05', kicker: 'Placeholder category', title: 'Featured Project Three', desc: BUILD_DESC, Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Featured build', Section: WorkflowPanel, Preview: () => null },
+  { 
+    id: 'ticketing', 
+    cat: 'work', 
+    index: '03', 
+    kicker: 'Predictive Modeling', 
+    title: 'Behavioral & Risk Analytics', 
+    desc: 'Binary classification in R evaluating 27 variables with VIF and Shapiro-Wilk diagnostics on 380+ subject records.', 
+    Icon: () => <Ticket size={20} weight="duotone" />, 
+    logos: [GHL], 
+    eyebrow: 'Featured build', 
+    Section: TicketingPanel, 
+    Preview: () => null 
+  },
+  { 
+    id: 'framework', 
+    cat: 'ai', 
+    index: '04', 
+    kicker: 'Inferential Statistics', 
+    title: 'Compensation & Productivity', 
+    desc: 'Multiple linear regression models built in R using 80/20 train-test validation and plain-English Odds Ratio reporting.', 
+    Icon: () => <Robot size={20} weight="duotone" />, 
+    logos: [CLAUDE_CODE], 
+    eyebrow: 'Featured build', 
+    Section: FrameworkPanel, 
+    Preview: () => null 
+  },
+  { 
+    id: 'workflow', 
+    cat: 'ai', 
+    index: '05', 
+    kicker: 'Data Visualization', 
+    title: 'Survey Analytics & Reporting', 
+    desc: 'Processing raw survey responses in Excel with Pivot Tables, custom charts, and strict APA 7th Edition formatting.', 
+    Icon: () => <FlowArrow size={20} weight="duotone" />, 
+    logos: [CLAUDE_CODE, CODEX, HERMES], 
+    eyebrow: 'Featured build', 
+    Section: WorkflowPanel, 
+    Preview: () => null 
+  },
 ]
 
 const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
@@ -95,17 +124,17 @@ function WorkflowsPreview() {
   )
 }
 
-/** A paper mock of the plan document, the way SamplePlan previews it. */
+/** A paper mock of the plan document */
 function PlanPreview() {
   return (
     <div className="bento__media bento__doc" aria-hidden="true">
-      <span className="bento__doc-eyebrow">Placeholder document</span>
-      <span className="bento__doc-title">Your document title here.</span>
+      <span className="bento__doc-eyebrow">APA 7th Technical Report</span>
+      <span className="bento__doc-title">Quasi-Experimental Posttest & Covariate Results</span>
       <span className="bento__doc-flow">
-        <i>Step</i>
-        <i>Step</i>
-        <i>Step?</i>
-        <i className="is-on">Result</i>
+        <i>Pretest</i>
+        <i>ANCOVA</i>
+        <i>Levene's</i>
+        <i className="is-on">Results</i>
       </span>
       <span className="bento__doc-line" />
       <span className="bento__doc-line bento__doc-line--short" />
@@ -113,7 +142,6 @@ function PlanPreview() {
   )
 }
 
-/** The three builds as Open Builds rows: plate, eyebrow, title, arrow. */
 function FunnelsPreview() {
   return (
     <div className="bento__media bento__fan" aria-hidden="true">
@@ -162,11 +190,68 @@ function AppsPreview() {
 }
 
 const PROJECTS: Project[] = [
-  { id: 'workflows', cat: 'work', index: '01', title: 'Project Title', desc: 'PLACEHOLDER - tell me what to put here: what these screens show.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Screenshots', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
-  { id: 'plan', cat: 'work', index: '02', title: 'Sample Document', desc: 'PLACEHOLDER - tell me what to put here: the document this opens.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Sample document', Section: PlanPanel, Preview: PlanPreview },
-  { id: 'funnels', cat: 'sites', index: '06', title: 'Pages and sites', desc: 'PLACEHOLDER - the pages in this reel. Spin the reel.', Icon: GlobeIcon, logos: [GHL], eyebrow: 'Pages and sites', Section: BarrelPanel, Preview: FunnelsPreview },
-  { id: 'ai', cat: 'ai', index: '07', title: 'Your systems title here', desc: 'PLACEHOLDER - tell me what to put here: the systems you run.', Icon: SparkIcon, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Your systems', Section: AIWindow, Preview: AIPreview },
-  { id: 'apps', cat: 'apps', index: '08', title: 'Apps and tools', desc: 'PLACEHOLDER - tell me what to put here: the apps and tools you ship.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Your apps', Section: AppsWindow, span: 2, Preview: AppsPreview },
+  { 
+    id: 'workflows', 
+    cat: 'work', 
+    index: '01', 
+    title: 'Quasi-Experimental ANCOVA Analysis', 
+    desc: 'Covariate-adjusted model evaluation using Type III Sum of Squares in R and Jamovi with complete assumption diagnostics.', 
+    Icon: FlowIcon, 
+    logos: [GHL], 
+    eyebrow: 'Inferential Analysis', 
+    Section: AutomationsPanel, 
+    span: 2, 
+    Preview: WorkflowsPreview 
+  },
+  { 
+    id: 'plan', 
+    cat: 'work', 
+    index: '02', 
+    title: 'Defense-Ready Manuscripts', 
+    desc: 'Complete Chapter 4 results formatted into APA 7th Edition tables with plain-English statistical narrative.', 
+    Icon: PlanIcon, 
+    logos: [GHL], 
+    eyebrow: 'APA 7th Deliverables', 
+    Section: PlanPanel, 
+    Preview: PlanPreview 
+  },
+  { 
+    id: 'funnels', 
+    cat: 'sites', 
+    index: '06', 
+    title: 'Quantitative Correlational Research', 
+    desc: 'Evaluating program impact through Pearson r correlation, addressing ceiling effects and sample size realities (N=30).', 
+    Icon: GlobeIcon, 
+    logos: [GHL], 
+    eyebrow: 'Quantitative Research', 
+    Section: BarrelPanel, 
+    Preview: FunnelsPreview 
+  },
+  { 
+    id: 'ai', 
+    cat: 'ai', 
+    index: '07', 
+    title: 'Statistical Software & Environment', 
+    desc: 'Primary analytical engines, regression pipelines, and diagnostic tools used across client research.', 
+    Icon: SparkIcon, 
+    logos: [CLAUDE_CODE, CODEX, HERMES], 
+    eyebrow: 'Analytical Stack', 
+    Section: AIWindow, 
+    Preview: AIPreview 
+  },
+  { 
+    id: 'apps', 
+    cat: 'apps', 
+    index: '08', 
+    title: 'Analytical Frameworks & Tools', 
+    desc: 'Standardized statistical routines, data cleaning scripts, and visualization platforms in R, Jamovi, and Excel.', 
+    Icon: DeviceIcon, 
+    logos: [PLAY, EXPO, CHROME], 
+    eyebrow: 'Methodology & Tools', 
+    Section: AppsWindow, 
+    span: 2, 
+    Preview: AppsPreview 
+  },
 ]
 
 /** The icon tile, or the real marks stacked horizontally in its place. */
@@ -189,9 +274,7 @@ function Marks({ p, size = 22 }: { p: Project; size?: number }) {
   )
 }
 
-/* ---------- Dialog ----------
-   A backdrop, a close button in the corner, and the work. No panel, no
-   header: each Section brings its own window (or, for the strip, none). */
+/* ---------- Dialog ---------- */
 function ProjectModal({ project, onClose, children }: { project: Project; onClose: () => void; children: ReactNode }) {
   const closeRef = useRef<HTMLButtonElement>(null)
 
@@ -249,50 +332,28 @@ export default function ProjectsGrid() {
 
   const stack = builds.length > 0 ? (
     <div className="bento__stack">
-
-        {builds.map((b) => (
-
-          <button
-
-            key={b.id}
-
-            type="button"
-
-            className="bento__card bento__card--btn bento__card--build"
-
-            onClick={(e) => show(b, e.currentTarget)}
-
-            aria-haspopup="dialog"
-
-          >
-
-            <span className="bento__build-plate">
-
-              {b.logos?.length ? <img src={b.logos[0]} alt="" width={22} height={22} /> : <b.Icon />}
-
-            </span>
-
-            <span className="bento__build-text">
-
-              <span className="bento__kicker">{b.kicker}</span>
-
-              <span className="bento__build-title">{b.title}</span>
-
-              <span className="bento__build-desc">{b.desc}</span>
-
-            </span>
-
-            <span className="bento__build-arrow">
-
-              <ArrowUpRight size={13} weight="bold" aria-hidden="true" />
-
-            </span>
-
-          </button>
-
-        ))}
-
-      </div>
+      {builds.map((b) => (
+        <button
+          key={b.id}
+          type="button"
+          className="bento__card bento__card--btn bento__card--build"
+          onClick={(e) => show(b, e.currentTarget)}
+          aria-haspopup="dialog"
+        >
+          <span className="bento__build-plate">
+            {b.logos?.length ? <img src={b.logos[0]} alt="" width={22} height={22} /> : <b.Icon />}
+          </span>
+          <span className="bento__build-text">
+            <span className="bento__kicker">{b.kicker}</span>
+            <span className="bento__build-title">{b.title}</span>
+            <span className="bento__build-desc">{b.desc}</span>
+          </span>
+          <span className="bento__build-arrow">
+            <ArrowUpRight size={13} weight="bold" aria-hidden="true" />
+          </span>
+        </button>
+      ))}
+    </div>
   ) : null
 
   return (
@@ -300,9 +361,11 @@ export default function ProjectsGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Projects</span>
         <h1 className="pgrid__title" id="projects-title">
-          Your projects headline goes right here.
+          Quantitative Research & Inferential Data Modeling
         </h1>
-        <p className="pgrid__lede">PLACEHOLDER - tell me what to put here: one line on the work below. Open a card to see it full size.</p>
+        <p className="pgrid__lede">
+          End-to-end statistical pipelines, rigorous assumption diagnostics, and defense-ready APA 7th reporting. Click a card to explore full project deliverables.
+        </p>
       </header>
 
       {phone && (
@@ -322,8 +385,6 @@ export default function ProjectsGrid() {
       )}
 
       <div className="home__glass pgrid__glass">
-        {/* Hung on the sheet's top edge so it reads as a tag on the container,
-            not a seventh card. aria-hidden: the lede already says it. */}
         <span className="pgrid__hint" aria-hidden="true">
           <CursorClick size={14} weight="duotone" />
           Click a card to open it
@@ -331,22 +392,22 @@ export default function ProjectsGrid() {
         <div className="bento bento--projects">
           {projects.map((p) => (
             <Fragment key={p.id}>
-            <button
-              type="button"
-              className={`bento__card bento__card--btn${p.span === 2 ? ' bento__card--wide' : ''}`}
-              data-id={p.id}
-              onClick={(e) => show(p, e.currentTarget)}
-              aria-haspopup="dialog"
-            >
-              <span className="bento__head">
-                <Marks p={p} />
-                <span className="bento__title">{p.title}</span>
-                <span className="bento__desc">{p.desc}</span>
-                <ArrowUpRight size={15} weight="bold" aria-hidden="true" className="bento__arrow" />
-              </span>
-              <p.Preview />
-            </button>
-            {p.id === 'plan' && stack}
+              <button
+                type="button"
+                className={`bento__card bento__card--btn${p.span === 2 ? ' bento__card--wide' : ''}`}
+                data-id={p.id}
+                onClick={(e) => show(p, e.currentTarget)}
+                aria-haspopup="dialog"
+              >
+                <span className="bento__head">
+                  <Marks p={p} />
+                  <span className="bento__title">{p.title}</span>
+                  <span className="bento__desc">{p.desc}</span>
+                  <ArrowUpRight size={15} weight="bold" aria-hidden="true" className="bento__arrow" />
+                </span>
+                <p.Preview />
+              </button>
+              {p.id === 'plan' && stack}
             </Fragment>
           ))}
           {!projects.some((p) => p.id === 'plan') && stack}
