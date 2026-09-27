@@ -17,7 +17,7 @@ const CLIENTS = [
   { name: 'Freelance Research Clients', role: 'Data Analyst & Technical Writer', work: 'Logistic Regression · Excel · Reporting' },
 ]
 
-const PHOTOS = [profile.avatarSrc, '/avatar.svg?2', '/avatar.svg?3']
+/**const PHOTOS = [profile.avatarSrc, '/avatar.svg?2', '/avatar.svg?3']
 
 /** The AI systems as a flat list: every leaf of the Projects tree, in order. */
 const leaves = (n: StackNode): StackNode[] =>
